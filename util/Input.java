@@ -81,19 +81,5 @@ public class Input {
         }
         return output;
     }
-// Extra inputs
-    public int countVowels(String input) {
-        return input.replaceAll("[^aeiouAEIOU]", "").length();
-    }
-
-
-
-    public static void main(String[] args) {
-        Input in = new Input(new Scanner(System.in));
-        System.out.println("Please enter a number: ");
-        int userInt = in.getHex();
-        System.out.println(userInt);
-    }
-
 
 }

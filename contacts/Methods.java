@@ -1,5 +1,7 @@
 package contacts;
 
+import util.Input;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
@@ -27,16 +29,16 @@ public class Methods {
     }
 
     public static void addContact() {
-        Scanner scan = new Scanner(System.in);
+        Input scan = new Input(new Scanner(System.in));
         Path p = Paths.get("contacts/contacts.txt");
 
         String nameAdd;
         String numberAdd;
 
         System.out.println("Enter the name: ");
-        nameAdd = scan.nextLine();
+        nameAdd = scan.getString();
         System.out.println("Enter the number: ");
-        numberAdd = scan.nextLine();
+        numberAdd = scan.getString();
 
         List<String> contacts = new ArrayList<>();
         contacts.add(nameAdd + " | " + numberAdd);
@@ -49,10 +51,10 @@ public class Methods {
     }
 
     public static void searchContacts() {
-        Scanner scan1 = new Scanner(System.in);
+        Input scan1 = new Input(new Scanner(System.in));
         String input2;
         System.out.println("Enter the contact you are looking for: ");
-        input2 = scan1.nextLine();
+        input2 = scan1.getString();
         try {
             List<String> lines = Files.readAllLines(Paths.get("contacts/contacts.txt"));
             for (String line : lines) {
@@ -68,10 +70,9 @@ public class Methods {
 
     public static void deleteContact() {
         Path p = Paths.get("contacts", "contacts.txt");
-
-        Scanner scan = new Scanner(System.in);
+        Input scan = new Input(new Scanner(System.in));
         System.out.println("Which contact would you like to delete?");
-        String contactToDelete = scan.nextLine();
+        String contactToDelete = scan.getString();
         try {
             List<String> now = new ArrayList<>();
             List<String> lines = Files.readAllLines(p);

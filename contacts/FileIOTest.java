@@ -1,12 +1,13 @@
 package contacts;
 
+import util.Input;
 import java.util.Scanner;
 
 public class FileIOTest {
     public static void main(String[] args) {
 
     while (true) {
-             System.out.println(
+         System.out.println(
                             "1. View contacts.\n" +
                             "2. Add a new contact.\n" +
                             "3. Search a contact by name.\n" +
@@ -14,9 +15,9 @@ public class FileIOTest {
                             "5. Exit.\n" +
                             "Enter an option (1, 2, 3, 4 or 5)");
 
-            Scanner input = new Scanner(System.in);
+        Input input = new Input(new Scanner(System.in));
 
-            int choice = input.nextInt();
+        int choice = input.getInt();
             switch (choice) {
                 case 1:
                     Methods show = new Methods();
