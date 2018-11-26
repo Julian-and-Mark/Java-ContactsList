@@ -6,11 +6,28 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FileIO {
 
+    // view method
     public static String readFileAsString(Path path) throws IOException {
+        return new String(Files.readAllBytes(path));
+    }
+
+    // Add method
+    public static String addFileAsString(Path path) throws IOException {
+        String diectory = "/Users/markstachowski/Projects/Codeup/IntelliJProjects" +
+                "/codeup-java-exercises/src/contacts";
+        String filename = "contacts.txt";
+        Path contactsPath = Paths.get(diectory, filename);
+        Files.write(
+                Paths.get(diectory, filename),
+                Arrays.listOf(contactsPath), // list with one item
+                StandardOpenOption.APPEND
+        );
         return new String(Files.readAllBytes(path));
     }
 
