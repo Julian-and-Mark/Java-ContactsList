@@ -16,7 +16,7 @@ public class Methods {
         try {
             System.out.println("Name | Phone number");
             System.out.println("-------------------");
-            List<String> contacts = Files.readAllLines(Paths.get("src/contacts/contacts.txt"));
+            List<String> contacts = Files.readAllLines(Paths.get("contacts/contacts.txt"));
 
             for (String line : contacts) {
                 System.out.println(line);
@@ -30,7 +30,7 @@ public class Methods {
 
     public static void addContact() {
         Input scan = new Input(new Scanner(System.in));
-        Path p = Paths.get("src/contacts/contacts.txt");
+        Path p = Paths.get("contacts/contacts.txt");
 
         String nameAdd;
         String numberAdd;
@@ -56,7 +56,7 @@ public class Methods {
         System.out.println("Enter the contact you are looking for: ");
         input2 = scan1.getString();
         try {
-            List<String> lines = Files.readAllLines(Paths.get("src/contacts/contacts.txt"));
+            List<String> lines = Files.readAllLines(Paths.get("contacts/contacts.txt"));
             for (String line : lines) {
                 if (line.contains(input2)) {
                     System.out.println(line);
@@ -69,7 +69,7 @@ public class Methods {
     }
 
     public static void deleteContact() {
-        Path p = Paths.get("src/contacts", "contacts.txt");
+        Path p = Paths.get("contacts", "contacts.txt");
         Input scan = new Input(new Scanner(System.in));
         System.out.println("Which contact would you like to delete?");
         String contactToDelete = scan.getString();
